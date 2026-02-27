@@ -1,0 +1,47 @@
+{% extends "layouts.master" %}
+
+{% block title %}About Us - {{ store.name|default('MOBEX AUTO PARTS') }}{% endblock %}
+
+{% block content %}
+    <!-- Page Title -->
+    <section class="page-title-section">
+        <div class="container">
+            <h1>About Us</h1>
+            <nav class="breadcrumbs">
+                <a href="{{ page('index') }}">Home</a> / <span>About Us</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="page-content-section">
+        <div class="container">
+            <div class="page-content">
+                <h2>Welcome to {{ store.name|default('MOBEX') }} Auto Parts & Accessories</h2>
+                <p>{{ store.name|default('MOBEX') }} is your trusted partner for all your automotive parts and accessories needs. With years of experience in the industry, we've built a reputation for quality, reliability, and exceptional customer service.</p>
+                
+                <h2>Our Mission</h2>
+                <p>Our mission is to provide high-quality auto parts and accessories at competitive prices, while delivering exceptional customer service and support. We believe that maintaining your vehicle shouldn't be complicated or expensive.</p>
+
+                <h2>Why Choose {{ store.name|default('MOBEX') }}?</h2>
+                <ul>
+                    <li><strong>Wide Selection:</strong> We offer an extensive range of auto parts from leading manufacturers</li>
+                    <li><strong>Quality Assurance:</strong> All products are carefully selected and tested for quality</li>
+                    <li><strong>Expert Support:</strong> Our team of automotive experts is here to help you find the right parts</li>
+                    <li><strong>Fast Shipping:</strong> Quick and reliable delivery to get you back on the road faster</li>
+                    <li><strong>Competitive Prices:</strong> Best prices in the market without compromising on quality</li>
+                </ul>
+
+                <h2>Our Story</h2>
+                <p>Founded with a passion for automobiles and a commitment to customer satisfaction, {{ store.name|default('MOBEX') }} has grown from a small local shop to a trusted online destination for auto parts. We understand the importance of keeping your vehicle running smoothly, and we're here to make that process as easy as possible.</p>
+
+                <h2>Contact Us</h2>
+                <p>Have questions or need assistance? Our friendly team is available seven days a week to help you find the perfect parts for your vehicle. <a href="{{ page('contact') }}">Get in touch with us</a> today!</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ 'shared.js'|asset }}"></script>
+{% endblock %}

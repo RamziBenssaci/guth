@@ -1,0 +1,38 @@
+{% extends "layouts.master" %}
+
+{% block title %}404 - Page Not Found - {{ store.name|default('MOBEX AUTO PARTS') }}{% endblock %}
+
+{% block content %}
+    <!-- 404 Content -->
+    <section class="error-404-section">
+        <div class="container">
+            <div class="error-content">
+                <div class="error-code">404</div>
+                <h1>Oops! Page Not Found</h1>
+                <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+                <div class="error-actions">
+                    <a href="{{ page('index') }}" class="error-btn">Go to Homepage</a>
+                    <a href="{{ page('products') }}" class="error-btn secondary">Browse Shop</a>
+                </div>
+                <div class="error-search">
+                    <h3>Search for what you need:</h3>
+                    <form class="search-form-404" onsubmit="searchFrom404(event)">
+                        <input type="text" name="search" placeholder="Search products...">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ 'shared.js'|asset }}"></script>
+    <script>
+        function searchFrom404(event) {
+            event.preventDefault();
+            const searchTerm = event.target.search.value;
+            window.location.href = '{{ page("products") }}?search=' + encodeURIComponent(searchTerm);
+        }
+    </script>
+{% endblock %}

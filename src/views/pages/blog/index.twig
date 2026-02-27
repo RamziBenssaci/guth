@@ -1,0 +1,175 @@
+{% extends "layouts.master" %}
+
+{% block title %}Blog - {{ store.name|default('MOBEX AUTO PARTS') }}{% endblock %}
+
+{% block content %}
+    <!-- Page Title -->
+    <section class="page-title-section">
+        <div class="container">
+            <h1>Blog</h1>
+            <nav class="breadcrumbs">
+                <a href="{{ page('index') }}">Home</a> / <span>Blog</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-layout">
+                <div class="blog-main">
+                    <div class="blog-posts">
+                        {% if articles|length > 0 %}
+                            {% for article in articles %}
+                                <article class="blog-post">
+                                    <div class="post-image">
+                                        {% if article.has_image and article.image %}
+                                            <img src="{{ article.image }}" alt="{{ article.image.alt|default(article.title) }}">
+                                        {% else %}
+                                            <img src="{{ 'images/articles/cars-sold.jpg'|asset }}" alt="{{ article.title }}">
+                                        {% endif %}
+                                        <span class="post-date">
+                                            {% if article.created_at %}
+                                                {{ article.created_at|date('d M')|upper }}
+                                            {% else %}
+                                                02 OCT
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                    <div class="post-content">
+                                        {% if article.category %}
+                                            <span class="post-category">{{ article.category }}</span>
+                                        {% else %}
+                                            <span class="post-category">News</span>
+                                        {% endif %}
+                                        <h2><a href="{{ article.url|default(page('blog')) }}">{{ article.title }}</a></h2>
+                                        <p>{{ article.summary|default('Read more about this article...') }}</p>
+                                        <a href="{{ article.url|default(page('blog')) }}" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </article>
+                            {% endfor %}
+                        {% else %}
+                            {# Static fallback articles - EXACT MATCH #}
+                            <article class="blog-post">
+                                <div class="post-image">
+                                    <img src="{{ 'images/articles/cars-sold.jpg'|asset }}" alt="Cars Sold">
+                                    <span class="post-date">02 OCT</span>
+                                </div>
+                                <div class="post-content">
+                                    <span class="post-category">News</span>
+                                    <h2><a href="{{ page('blog') }}">The number of new cars sold over 20 years</a></h2>
+                                    <p>An in-depth analysis of car sales trends over the past two decades, examining market changes and consumer preferences that have shaped the automotive industry.</p>
+                                    <a href="{{ page('blog') }}" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </article>
+
+                            <article class="blog-post">
+                                <div class="post-image">
+                                    <img src="{{ 'images/articles/warning-lights.jpg'|asset }}" alt="Warning Lights">
+                                    <span class="post-date">02 OCT</span>
+                                </div>
+                                <div class="post-content">
+                                    <span class="post-category">Usefull</span>
+                                    <h2><a href="{{ page('blog') }}">Warning lights indicating activation of various systems</a></h2>
+                                    <p>Understanding your vehicle's warning lights is crucial for maintaining safety and preventing costly repairs. Learn what each light means and when to take action.</p>
+                                    <a href="{{ page('blog') }}" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </article>
+
+                            <article class="blog-post">
+                                <div class="post-image">
+                                    <img src="{{ 'images/articles/oil-change.jpg'|asset }}" alt="Oil Change">
+                                    <span class="post-date">02 OCT</span>
+                                </div>
+                                <div class="post-content">
+                                    <span class="post-category">Premium</span>
+                                    <h2><a href="{{ page('blog') }}">What to know about changing the engine oil and oil filters</a></h2>
+                                    <p>Regular oil changes are essential for your vehicle's longevity. Discover the best practices, recommended intervals, and how to choose the right oil for your car.</p>
+                                    <a href="{{ page('blog') }}" class="read-more-link">Read more <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </article>
+                        {% endif %}
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        {% if articles.pagination %}
+                            {% if articles.pagination.prev_url %}
+                                <a href="{{ articles.pagination.prev_url }}" class="page-btn"><i class="fas fa-chevron-left"></i></a>
+                            {% else %}
+                                <a href="#" class="page-btn"><i class="fas fa-chevron-left"></i></a>
+                            {% endif %}
+                            {% for page_num in articles.pagination.pages %}
+                                <a href="{{ page_num.url }}" class="page-number {% if page_num.is_current %}active{% endif %}">{{ page_num.number }}</a>
+                            {% endfor %}
+                            {% if articles.pagination.next_url %}
+                                <a href="{{ articles.pagination.next_url }}" class="page-btn"><i class="fas fa-chevron-right"></i></a>
+                            {% else %}
+                                <a href="#" class="page-btn"><i class="fas fa-chevron-right"></i></a>
+                            {% endif %}
+                        {% else %}
+                            {# Static pagination fallback #}
+                            <a href="#" class="page-btn"><i class="fas fa-chevron-left"></i></a>
+                            <a href="#" class="page-number active">1</a>
+                            <a href="#" class="page-number">2</a>
+                            <a href="#" class="page-number">3</a>
+                            <a href="#" class="page-btn"><i class="fas fa-chevron-right"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <aside class="blog-sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Search</h3>
+                        <form class="sidebar-search" onsubmit="searchBlog(event)">
+                            <input type="text" name="search" placeholder="Search...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h3>Categories</h3>
+                        <ul class="category-list">
+                            {% if categories|length > 0 %}
+                                {% for category in categories %}
+                                    <li><a href="{{ category.url }}">{{ category.name }} ({{ category.count|default(0) }})</a></li>
+                                {% endfor %}
+                            {% else %}
+                                <li><a href="#">News (5)</a></li>
+                                <li><a href="#">Usefull (8)</a></li>
+                                <li><a href="#">Premium (3)</a></li>
+                                <li><a href="#">Tips (12)</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h3>Recent Posts</h3>
+                        <ul class="recent-posts">
+                            {% if articles|length > 0 %}
+                                {% for article in articles|slice(0, 3) %}
+                                    <li><a href="{{ article.url|default(page('blog')) }}">{{ article.title }}</a></li>
+                                {% endfor %}
+                            {% else %}
+                                <li><a href="{{ page('blog') }}">The number of new cars sold over 20 years</a></li>
+                                <li><a href="{{ page('blog') }}">Warning lights indicating activation of various systems</a></li>
+                                <li><a href="{{ page('blog') }}">What to know about changing the engine oil</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ 'shared.js'|asset }}"></script>
+    <script src="{{ 'blog.js'|asset }}"></script>
+    <script>
+        function searchBlog(event) {
+            event.preventDefault();
+            const searchTerm = event.target.search.value;
+            // Implement blog search functionality
+            window.location.href = '{{ page("blog") }}?search=' + encodeURIComponent(searchTerm);
+        }
+    </script>
+{% endblock %}

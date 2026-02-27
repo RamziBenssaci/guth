@@ -111,3 +111,4 @@ Then upload to Salla theme manager.
 "# jhkiro" 
 "# guth" 
 "# guth" 
+"# jhkiro" 

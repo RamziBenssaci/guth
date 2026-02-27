@@ -1,0 +1,40 @@
+<!-- Header -->
+<header class="main-header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                {% if store.logo %}
+                    <img src="{{ store.logo }}" alt="{{ store.name }}">
+                {% else %}
+                    <h1>{{ store.name|default('MOBEX') }}</h1>
+                    <p>AUTO PARTS & ACCESSORIES</p>
+                {% endif %}
+            </div>
+            <div class="header-search">
+                <select class="search-category">
+                    <option>Select category</option>
+                    <option>Engine Parts</option>
+                    <option>Brakes</option>
+                    <option>Filters</option>
+                </select>
+                <input type="text" class="search-input" placeholder="Enter a keyword or product SKU">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <select class="currency-select">
+                    <option>$ USD</option>
+                </select>
+                <select class="language-select">
+                    <option>En</option>
+                </select>
+                <button class="login-btn"><i class="fas fa-user"></i> Login</button>
+                <a href="#" class="icon-link"><i class="fas fa-exchange-alt"></i></a>
+                <a href="#" class="icon-link"><i class="fas fa-heart"></i></a>
+                <a href="{{ page('cart') }}" class="cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart <span class="cart-count">{% if cart.items|length > 0 %}{{ cart.items|length }} items{% else %}0 items{% endif %}</span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>

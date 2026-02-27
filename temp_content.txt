@@ -1,0 +1,940 @@
+﻿    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="container">
+            <div class="top-banner-left">
+                <span><i class="fas fa-phone"></i> Call us between 8 AM - 10 PM / 6668 5555 8464</span>
+                <span><i class="fas fa-headset"></i> Live Chat / Chat with an Expert</span>
+            </div>
+            <div class="top-banner-center">
+                <span class="sale-text">Pre-Black Friday Sale</span>
+                <span class="sale-code">Up to 65% Off | Use code "BLACK"</span>
+            </div>
+            <div class="top-banner-right">
+                <div class="countdown">
+                    <span>Offer Expires in</span>
+                    <div class="countdown-timer">
+                        <span class="timer-box"><span id="hours">09</span></span>
+                        <span class="timer-separator">:</span>
+                        <span class="timer-box"><span id="minutes">20</span></span>
+                        <span class="timer-separator">:</span>
+                        <span class="timer-box"><span id="seconds">57</span></span>
+                        <span class="timer-separator">:</span>
+                        <span class="timer-box"><span id="milliseconds">32</span></span>
+                    </div>
+                </div>
+                <span class="close-banner"><i class="fas fa-times"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>MOBEX</h1>
+                    <p>AUTO PARTS & ACCESSORIES</p>
+                </div>
+                <div class="header-search">
+                    <select class="search-category">
+                        <option>Select category</option>
+                        <option>Engine Parts</option>
+                        <option>Brakes</option>
+                        <option>Filters</option>
+                    </select>
+                    <input type="text" class="search-input" placeholder="Enter a keyword or product SKU">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <select class="currency-select">
+                        <option>$ USD</option>
+                    </select>
+                    <select class="language-select">
+                        <option>En</option>
+                    </select>
+                    <button class="login-btn"><i class="fas fa-user"></i> Login</button>
+                    <a href="#" class="icon-link"><i class="fas fa-exchange-alt"></i></a>
+                    <a href="#" class="icon-link"><i class="fas fa-heart"></i></a>
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart <span class="cart-count">0 items</span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <button class="categories-btn">
+                <i class="fas fa-bars"></i> All categories <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="shop.html?filter=brand">Shop by brand <span class="new-badge">New!</span></a></li>
+                <li><a href="shop.html?filter=category">Shop by categories</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="my-garage-btn">
+                <i class="fas fa-car"></i> My garage <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2>JUMP STARTERS</h2>
+                        <p>START BATTERIES IN SECONDS</p>
+                        <button class="shop-now-btn">Shop now <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="hero-image">
+                        <img src="images/jump-starter.jpg" alt="Jump Starter">
+                        <div class="price-badge">FROM $49.99</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Vehicle Filter - Fixed in Hero Banner -->
+        <div class="hero-vehicle-filter">
+            <div class="vehicle-filter-form">
+                <h5>Select your car</h5>
+                <div class="vehicle-filter-fields">
+                    <select class="vehicle-select">
+                        <option>Make</option>
+                    </select>
+                    <select class="vehicle-select">
+                        <option>Model</option>
+                    </select>
+                    <select class="vehicle-select">
+                        <option>Year</option>
+                    </select>
+                    <select class="vehicle-select">
+                        <option>Engine</option>
+                    </select>
+                    <select class="vehicle-select">
+                        <option>Trim</option>
+                    </select>
+                    <button class="vehicle-search-btn">Search</button>
+                </div>
+                <div class="vehicle-filter-or">
+                    <span>OR</span>
+                </div>
+                <div class="vehicle-filter-vin">
+                    <input type="text" class="vin-input" placeholder="Search by VIN">
+                    <button class="vin-search-btn">Search</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="featured-categories">
+        <div class="container">
+            <h4 class="section-title">Featured categories</h4>
+            <div class="categories-grid">
+                <div class="category-item">
+                    <a href="shop.html?category=body">
+                        <div class="category-icon">
+                            <img src="images/categories/body.jpg" alt="Body">
+                        </div>
+                        <h3>Body</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="shop.html?category=brakes">
+                        <div class="category-icon">
+                            <img src="images/categories/brakes.jpg" alt="Brakes">
+                        </div>
+                        <h3>Brakes</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="shop.html?category=care-kit">
+                        <div class="category-icon">
+                            <img src="images/categories/care-kit.jpg" alt="Care Kit">
+                        </div>
+                        <h3>Care Kit</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="shop.html?category=damping">
+                        <div class="category-icon">
+                            <img src="images/categories/damping.jpg" alt="Damping">
+                        </div>
+                        <h3>Damping</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="shop.html?category=electrics">
+                        <div class="category-icon">
+                            <img src="images/categories/electrics.jpg" alt="Electrics">
+                        </div>
+                        <h3>Electrics</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="shop.html?category=engine">
+                        <div class="category-icon">
+                            <img src="images/categories/engine.jpg" alt="Engine">
+                        </div>
+                        <h3>Engine</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="shop.html?category=filters">
+                        <div class="category-icon">
+                            <img src="images/categories/filters.jpg" alt="Filters">
+                        </div>
+                        <h3>Filters</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="shop.html?category=interior">
+                        <div class="category-icon">
+                            <img src="images/categories/interior.jpg" alt="Interior">
+                        </div>
+                        <h3>Interior</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="shop.html?category=fluids">
+                        <div class="category-icon">
+                            <img src="images/categories/fluids.jpg" alt="Fluids">
+                        </div>
+                        <h3>Fluids</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banners -->
+    <section class="promo-banners">
+        <div class="container">
+            <div class="banner-grid">
+                <div class="promo-banner batteries-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge">Top brands</span>
+                        <h2>BATTERIES</h2>
+                        <p>Stay charged up!</p>
+                        <button class="banner-btn">Shop now <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="images/battery.jpg" alt="Battery">
+                    </div>
+                </div>
+                <div class="promo-banner tires-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge green">Buy 3 Get 1 For Free</span>
+                        <h2>TIRES & WHEELS</h2>
+                        <p>Stay safe on road!</p>
+                        <button class="banner-btn">Shop now <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="images/tires.jpg" alt="Tires">
+                    </div>
+                </div>
+                <div class="promo-banner springs-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge yellow">Big sale</span>
+                        <h2>BUY 1 GET 1</h2>
+                        <p>FREE</p>
+                        <button class="banner-btn">Shop now <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="images/springs.jpg" alt="Springs">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h4 class="section-title">Featured products in</h4>
+                <div class="category-tabs">
+                    <button class="tab-btn active">Engine parts</button>
+                    <button class="tab-btn">Oil & Fluids</button>
+                    <button class="tab-btn">Suspension</button>
+                </div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="product-badge sale">Sale</span>
+                    <div class="product-image">
+                        <img src="images/products/engine-oil.jpg" alt="Engine Oil">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">FEBI BILSTEIN 31110 Engine oil</h3>
+                        <div class="product-rating">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="product-price">$23.65</div>
+                        <button class="add-to-cart-btn">Add to cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="product-badge sale">Sale</span>
+                    <div class="product-image">
+                        <img src="images/products/lambda.jpg" alt="Lambda Sensor">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">BOSCH 0 258 986 615 Lambda</h3>
+                        <div class="product-rating">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="product-price">$43.90</div>
+                        <button class="add-to-cart-btn">Add to cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="product-badge sale">Sale</span>
+                    <span class="product-badge popular">Popular</span>
+                    <div class="product-image">
+                        <img src="images/products/knock.jpg" alt="Knock Sensor">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">VEMO V95-72-0029 Knock</h3>
+                        <div class="product-rating">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="product-price">$23.86</div>
+                        <button class="add-to-cart-btn">Add to cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="product-badge sale">Sale</span>
+                    <span class="product-badge new">New!</span>
+                    <div class="product-image">
+                        <img src="images/products/air-flow.jpg" alt="Mass Air Flow">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">VDO 5WK97004Z Mass air flow</h3>
+                        <div class="product-rating">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="product-price">$79.33</div>
+                        <button class="add-to-cart-btn">Add to cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="product-badge sale">Sale</span>
+                    <span class="product-badge popular">Popular</span>
+                    <div class="product-image">
+                        <img src="images/products/engine-oil-cooler.jpg" alt="Engine Oil Cooler">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">RIDEX 46900075 Engine oil cooler</h3>
+                        <div class="product-rating">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="product-price">$45.20</div>
+                        <button class="add-to-cart-btn">Add to cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="product-badge sale">Sale</span>
+                    <span class="product-badge new">New!</span>
+                    <div class="product-image">
+                        <img src="images/products/lambda-sensor.jpg" alt="Lambda Sensor">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">RIDEX 3922L0210 Lambda Sensor</h3>
+                        <div class="product-rating">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="product-price">$38.50</div>
+                        <button class="add-to-cart-btn">Add to cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="product-badge sale">Sale</span>
+                    <div class="product-image">
+                        <img src="images/products/knock-sensor.jpg" alt="Knock Sensor">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">STARK SKKS-0400058 Knock</h3>
+                        <div class="product-rating">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="product-price">$28.90</div>
+                        <button class="add-to-cart-btn">Add to cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="product-badge popular">Popular</span>
+                    <div class="product-image">
+                        <img src="images/products/coolant-sensor.jpg" alt="Coolant Sensor">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">RIDEX Sensor, coolant</h3>
+                        <div class="product-rating">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="product-price">$32.15</div>
+                        <button class="add-to-cart-btn">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deals of the Week -->
+    <section class="deals-section">
+        <div class="container">
+            <div class="deals-header">
+                <h2>Deals of the week!</h2>
+                <div class="deals-countdown">
+                    <span class="timer-box">09</span>
+                    <span class="timer-separator">:</span>
+                    <span class="timer-box">20</span>
+                    <span class="timer-separator">:</span>
+                    <span class="timer-box">54</span>
+                    <span class="timer-separator">:</span>
+                    <span class="timer-box">27</span>
+                </div>
+                <div class="deals-nav">
+                    <button class="nav-arrow"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-arrow"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="product-badge sale">Sale</span>
+                    <div class="product-image">
+                        <img src="images/products/screwdriver.jpg" alt="Screwdriver">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">YATO YT-04382 Screwdriver Bit</h3>
+                        <div class="product-rating">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="product-price">$1.85</div>
+                        <button class="add-to-cart-btn">Add to cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="product-badge popular">Popular</span>
+                    <div class="product-image">
+                        <img src="images/products/relay.jpg" alt="Relay">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">VICMA Relay, start repeater</h3>
+                        <div class="product-rating">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="product-price">$14.36</div>
+                        <button class="add-to-cart-btn">Add to cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="product-badge sale">Sale</span>
+                    <div class="product-image">
+                        <img src="images/products/heater.jpg" alt="Heater Matrix">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">VEMO V20-61-0001 Heater matrix</h3>
+                        <div class="product-rating">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="product-price">$65.06</div>
+                        <button class="add-to-cart-btn">Add to cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="product-badge sale">Sale</span>
+                    <span class="product-badge new">New!</span>
+                    <div class="product-image">
+                        <img src="images/products/air-flow.jpg" alt="Mass Air Flow">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">VDO 5WK97004Z Mass air flow</h3>
+                        <div class="product-rating">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="product-price">$79.33</div>
+                        <button class="add-to-cart-btn">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Manufacturers -->
+    <section class="featured-manufacturers">
+        <div class="container">
+            <div class="section-header">
+                <h4 class="section-title">Featured manufacturers</h4>
+                <div class="manufacturers-nav">
+                    <button class="nav-arrow"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-arrow"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="manufacturers-grid">
+                <div class="manufacturer-item"><img src="images/brands/audi.webp" alt="Audi"></div>
+                <div class="manufacturer-item"><img src="images/brands/bentley.webp" alt="Bentley"></div>
+                <div class="manufacturer-item"><img src="images/brands/chevrolet.webp" alt="Chevrolet"></div>
+                <div class="manufacturer-item"><img src="images/brands/ford.webp" alt="Ford"></div>
+                <div class="manufacturer-item"><img src="images/brands/infiniti.webp" alt="Infiniti"></div>
+                <div class="manufacturer-item"><img src="images/brands/kia.webp" alt="Kia"></div>
+                <div class="manufacturer-item"><img src="images/brands/lexus.webp" alt="Lexus"></div>
+                <div class="manufacturer-item"><img src="images/brands/mazda.webp" alt="Mazda"></div>
+                <div class="manufacturer-item"><img src="images/brands/mitsubishi.webp" alt="Mitsubishi"></div>
+                <div class="manufacturer-item"><img src="images/brands/porche.webp" alt="Porsche"></div>
+                <div class="manufacturer-item"><img src="images/brands/toyota.webp" alt="Toyota"></div>
+                <div class="manufacturer-item"><img src="images/brands/volvo.webp" alt="Volvo"></div>
+                <div class="manufacturer-item"><img src="images/brands/bmw.webp" alt="BMW"></div>
+                <div class="manufacturer-item"><img src="images/brands/cadillac.webp" alt="Cadillac"></div>
+                <div class="manufacturer-item"><img src="images/brands/dodge.webp" alt="Dodge"></div>
+                <div class="manufacturer-item"><img src="images/brands/honda.webp" alt="Honda"></div>
+                <div class="manufacturer-item"><img src="images/brands/hyundai.webp" alt="Hyundai"></div>
+                <div class="manufacturer-item"><img src="images/brands/lamborghini.webp" alt="Lamborghini"></div>
+                <div class="manufacturer-item"><img src="images/brands/lincoln.webp" alt="Lincoln"></div>
+                <div class="manufacturer-item"><img src="images/brands/mercedes-benz.webp" alt="Mercedes-Benz"></div>
+                <div class="manufacturer-item"><img src="images/brands/nissan.webp" alt="Nissan"></div>
+                <div class="manufacturer-item"><img src="images/brands/rolls-royce.webp" alt="Rolls-Royce"></div>
+                <div class="manufacturer-item"><img src="images/brands/volkswagen.webp" alt="Volkswagen"></div>
+                <div class="manufacturer-item"><img src="images/brands/maybach.webp" alt="Maybach"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="customer-reviews">
+        <div class="container">
+            <div class="reviews-header">
+                <h4 class="section-title">What our customers think</h4>
+                <div class="reviews-rating">
+                    <span class="rating-text">Excellent 4.91</span>
+                    <span class="rating-count">based on 225,181 reviews</span>
+                </div>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="images/reviewers/john.jpg" alt="John Anderson" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <h4>John Anderson</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">I found the exact fuel pump I needed for my vintage car, and the speedy delivery exceeded my expectations.</p>
+                </div>
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="images/reviewers/liam.jpg" alt="Liam Turner" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <h4>Liam Turner</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">The quality is top. I purchased brake pads for my SUV, improved my vehicle's stopping power.</p>
+                </div>
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="images/reviewers/alex.jpg" alt="Alex Smith" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <h4>Alex Smith</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">Mobex delivered on their promise of quality and affordability. I got an air filter for my SUV, and it fit perfectly.</p>
+                </div>
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="images/reviewers/taylor.jpg" alt="Taylor Laurent" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <h4>Taylor Laurent</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">The diverse inventory and personalized support simplified the process. Mobex is a lifesaver for me.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Promotional Banners -->
+    <section class="additional-banners">
+        <div class="container">
+            <div class="banner-grid-2">
+                <div class="promo-banner brake-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge">Top brands</span>
+                        <h2>BRAKE SYSTEM</h2>
+                        <p>WE'VE GOT YOU COVERED</p>
+                        <p class="banner-subtitle">Great Values. Always.</p>
+                        <button class="banner-btn">Shop now <i class="fas fa-arrow-right"></i></button>
+                        <button class="presale-chat-btn">Presale chat</button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="images/brake-system.jpg" alt="Brake System">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Brands -->
+    <section class="featured-brands">
+        <div class="container">
+            <h4 class="section-title">Featured brands</h4>
+            <div class="brands-grid">
+                <div class="brand-item"><img src="images/brands/icma.jpg" alt="ICMA"></div>
+                <div class="brand-item"><img src="images/brands/ravenol.jpg" alt="RAVENOL"></div>
+                <div class="brand-item"><img src="images/brands/tricsan.jpg" alt="TRICSAN"></div>
+                <div class="brand-item"><img src="images/brands/blic.jpg" alt="BLIC"></div>
+                <div class="brand-item"><img src="images/brands/dayco.jpg" alt="DAYCO"></div>
+                <div class="brand-item"><img src="images/brands/stark.jpg" alt="Stark"></div>
+                <div class="brand-item"><img src="images/brands/ridex.jpg" alt="RIDEX"></div>
+                <div class="brand-item"><img src="images/brands/castrol.jpg" alt="CASTROL"></div>
+                <div class="brand-item"><img src="images/brands/alanko.jpg" alt="ALANKO"></div>
+                <div class="brand-item"><img src="images/brands/abakus.jpg" alt="ABAKUS"></div>
+                <div class="brand-item"><img src="images/brands/bosch.jpg" alt="BOSCH"></div>
+                <div class="brand-item"><img src="images/brands/leoplast.jpg" alt="Leoplast"></div>
+                <div class="brand-item"><img src="images/brands/dt.jpg" alt="Dt"></div>
+                <div class="brand-item"><img src="images/brands/petek.jpg" alt="Petek"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guides and Articles -->
+    <section class="guides-section">
+        <div class="container">
+            <div class="guides-content">
+                <div class="guides-text">
+                    <h4 class="section-title">Guides and articles</h4>
+                    <p>Articles and Guides that are written with the mechanics to ensure you have all the edge you need to make the correct selection here at Mobex.</p>
+                    <button class="read-more-btn">Read more <i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="images/articles/cars-sold.jpg" alt="Cars Sold">
+                            <span class="article-date">02 OCT</span>
+                        </div>
+                        <span class="article-category">News</span>
+                        <h3>The number of new cars sold over 20 years</h3>
+                        <a href="#" class="article-link">Read more <i class="fas fa-arrow-right"></i></a>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="images/articles/warning-lights.jpg" alt="Warning Lights">
+                            <span class="article-date">02 OCT</span>
+                        </div>
+                        <span class="article-category">Usefull</span>
+                        <h3>Warning lights indicating activation of various systems</h3>
+                        <a href="#" class="article-link">Read more <i class="fas fa-arrow-right"></i></a>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="images/articles/oil-change.jpg" alt="Oil Change">
+                            <span class="article-date">02 OCT</span>
+                        </div>
+                        <span class="article-category">Premium</span>
+                        <h3>What to know about changing the engine oil and oil filters</h3>
+                        <a href="#" class="article-link">Read more <i class="fas fa-arrow-right"></i></a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Promotional Banners -->
+    <section class="more-promo-banners">
+        <div class="container">
+            <div class="banner-grid-2">
+                <div class="promo-banner lamps-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge green">Top Brands</span>
+                        <h2>LAMPS AND LIGHTS</h2>
+                        <h2 class="banner-mega">MEGA SALE</h2>
+                        <p>2023 models included!</p>
+                        <button class="banner-btn">Shop now <i class="fas fa-arrow-right"></i></button>
+                        <button class="presale-chat-btn">Presale chat</button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="images/lamps.jpg" alt="Lamps">
+                    </div>
+                </div>
+                <div class="promo-banner filters-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge red">Big Sales!</span>
+                        <h2>AIR FILTERS</h2>
+                        <p>Premium quality</p>
+                        <button class="banner-btn">Shop now <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="images/air-filters.jpg" alt="Air Filters">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Promotional Banners 2 -->
+    <section class="more-promo-banners-2">
+        <div class="container">
+            <div class="banner-grid-2">
+                <div class="promo-banner offroad-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge orange">Up to 40% Off</span>
+                        <h2>READY FOR<br>OFF ROAD</h2>
+                        <p>Confidence on any road!</p>
+                        <button class="banner-btn">Shop now <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="images/offroad-tire.jpg" alt="Off-Road Tire">
+                    </div>
+                </div>
+                <div class="promo-banner engine-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge green">Top Brands</span>
+                        <h2>ENGINE<br>ESSENTIALS</h2>
+                        <p>Maximize & Maintain</p>
+                        <button class="banner-btn">Shop now <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="images/engine.jpg" alt="Engine">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transmission & Care Kit Banners -->
+    <section class="transmission-banners">
+        <div class="container">
+            <div class="banner-grid-2">
+                <div class="promo-banner transmission-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge yellow">15% off</span>
+                        <h2>TRANSMISSION FLUIDS</h2>
+                        <p>Superior Quality ATF</p>
+                    </div>
+                    <div class="banner-image">
+                        <img src="images/transmission-fluid.jpg" alt="Transmission Fluid">
+                    </div>
+                </div>
+                <div class="promo-banner carekit-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge green">Save 25%. All in One!</span>
+                        <h2>CARE CARE KIT</h2>
+                        <p>Keep things clean and shinela</p>
+                        <button class="banner-btn">Shop now <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="images/care-kit.jpg" alt="Care Kit">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Shipping Banner -->
+    <section class="shipping-banner">
+        <div class="container">
+            <div class="shipping-content">
+                <div class="shipping-text">
+                    <h2>FREE<br>SHIPPING</h2>
+                    <div class="shipping-price">
+                        <span class="price-large">$99</span>
+                        <span class="price-label">STARTING</span>
+                    </div>
+                    <p>For all items & regions!</p>
+                </div>
+                <div class="shipping-image">
+                    <img src="images/delivery-van.jpg" alt="Delivery">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-features">
+                    <div class="footer-feature">
+                        <i class="fas fa-headset"></i>
+                        <h3>Expert Service</h3>
+                        <p>Our friendly team's on hand seven days a week.</p>
+                    </div>
+                    <div class="footer-feature">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <h3>Amazing Value</h3>
+                        <p>The brands you prefer, at the prices you crave.</p>
+                    </div>
+                    <div class="footer-feature">
+                        <i class="fas fa-truck"></i>
+                        <h3>Fast & Free Shipping</h3>
+                        <p>Order ships out in a snap, and delivers in 1-3 days.</p>
+                    </div>
+                    <div class="footer-feature">
+                        <i class="fas fa-box"></i>
+                        <h3>Unbeatable Selection</h3>
+                        <p>Everything you want for your car, all in one place.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <h2>MOBEX</h2>
+                            <p>AUTO PARTS & ACCESSORIES</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                        <div class="newsletter">
+                            <p>What's inside: new arrivals, exclusive sales, truck news and more!</p>
+                            <div class="newsletter-form">
+                                <input type="email" placeholder="Email address">
+                                <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Account</h3>
+                        <ul>
+                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Orders</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">My garage</a></li>
+                            <li><a href="#">Addresses</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Catalog</h3>
+                        <ul>
+                            <li><a href="#">Shop by parts</a></li>
+                            <li><a href="#">Shop by brands</a></li>
+                            <li><a href="#">Shop by make</a></li>
+                            <li><a href="#">Promotions</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Help</h3>
+                        <ul>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Career</a></li>
+                            <li><a href="#">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Need help? / Contact us</h3>
+                        <div class="contact-info">
+                            <p><i class="fas fa-map-marker-alt"></i> 7031 N 35th Ave, Phoenix Arkansas United States</p>
+                            <p><i class="fas fa-phone"></i> Call us between 8 AM - 10 PM<br><strong>6668 5555 8464</strong></p>
+                            <p><i class="fas fa-headset"></i> Live chat<br><a href="#">Chat with an Expert</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Presale Chat Button -->
+    <button class="presale-chat-float">
+        <i class="fas fa-comment"></i> Presale chat
+    </button>
+

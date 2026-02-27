@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ user.language.code }}" dir="{{ user.language.dir }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ store.name|default('MOBEX AUTO PARTS & ACCESSORIES') }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ 'app.css'|asset }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    {% include 'components.header.top-banner' %}
+    {% include 'components.header.main-header' %}
+    {% include 'components.header.navigation' %}
+
+    {% block content %}{% endblock %}
+
+    {% include 'components.footer.main-footer' %}
+
+    <!-- Presale Chat Button -->
+    <button class="presale-chat-float">
+        <i class="fas fa-comment"></i> Presale chat
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="{{ 'script.js'|asset }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

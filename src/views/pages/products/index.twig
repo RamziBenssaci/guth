@@ -1,0 +1,324 @@
+{% extends "layouts.master" %}
+
+{% block title %}Shop - {{ store.name|default('MOBEX AUTO PARTS & ACCESSORIES') }}{% endblock %}
+
+{% block content %}
+    <!-- Page Title -->
+    <section class="page-title-section">
+        <div class="container">
+            <h1>Shop</h1>
+            <nav class="breadcrumbs">
+                <a href="{{ page('index') }}">Home</a> / <span>Shop</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Shop Content -->
+    <section class="shop-content">
+        <div class="container">
+            <div class="shop-layout">
+                <!-- Sidebar -->
+                <aside class="shop-sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Filter by Category</h3>
+                        <ul class="filter-list">
+                            <li><a href="{{ page('products') }}" class="active">All Categories</a></li>
+                            {% if categories|length > 0 %}
+                                {% for category in categories|slice(0, 7) %}
+                                    <li><a href="{{ category.url }}">{{ category.name }}</a></li>
+                                {% endfor %}
+                            {% else %}
+                                <li><a href="#">Engine Parts</a></li>
+                                <li><a href="#">Brakes</a></li>
+                                <li><a href="#">Filters</a></li>
+                                <li><a href="#">Suspension</a></li>
+                                <li><a href="#">Electrics</a></li>
+                                <li><a href="#">Body Parts</a></li>
+                                <li><a href="#">Interior</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h3>Filter by Price</h3>
+                        <div class="price-filter">
+                            <input type="range" min="0" max="1000" value="1000" class="price-range">
+                            <div class="price-range-values">
+                                <span>$0</span>
+                                <span>$1000</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h3>Filter by Brand</h3>
+                        <ul class="filter-list">
+                            {% if brands|length > 0 %}
+                                {% for brand in brands|slice(0, 6) %}
+                                    <li><a href="{{ brand.url }}">{{ brand.name }}</a></li>
+                                {% endfor %}
+                            {% else %}
+                                <li><a href="#">BOSCH</a></li>
+                                <li><a href="#">RIDEX</a></li>
+                                <li><a href="#">VEMO</a></li>
+                                <li><a href="#">VDO</a></li>
+                                <li><a href="#">FEBI BILSTEIN</a></li>
+                                <li><a href="#">STARK</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h3>Filter by Rating</h3>
+                        <ul class="rating-filter">
+                            <li><a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a></li>
+                            <li><a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></a></li>
+                            <li><a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Products -->
+                <div class="shop-main">
+                    <div class="shop-toolbar">
+                        <div class="toolbar-left">
+                            <p>Showing 1-12 of {% if products|length > 0 %}{{ products|length }}{% else %}156{% endif %} products</p>
+                        </div>
+                        <div class="toolbar-right">
+                            <select class="sort-select">
+                                <option>Default sorting</option>
+                                <option>Sort by popularity</option>
+                                <option>Sort by average rating</option>
+                                <option>Sort by latest</option>
+                                <option>Sort by price: low to high</option>
+                                <option>Sort by price: high to low</option>
+                            </select>
+                            <div class="view-toggle">
+                                <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                                <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="products-grid" id="products-container">
+                        {% if products|length > 0 %}
+                            {% for product in products %}
+                                <div class="product-card">
+                                    {% if product.is_on_sale %}<span class="product-badge sale">Sale</span>{% endif %}
+                                    {% if product.is_new %}<span class="product-badge new">New!</span>{% endif %}
+                                    {% if product.is_popular %}<span class="product-badge popular">Popular</span>{% endif %}
+                                    <div class="product-image">
+                                        <a href="{{ product.url }}">
+                                            <img src="{{ product.image.url|default('images/placeholder.png'|asset) }}" alt="{{ product.image.alt|default(product.name) }}">
+                                        </a>
+                                    </div>
+                                    <div class="product-info">
+                                        <h3 class="product-title"><a href="{{ product.url }}">{{ product.name }}</a></h3>
+                                        <div class="product-rating">
+                                            {% if product.rating %}
+                                                {% for i in 1..5 %}
+                                                    {% if i <= product.rating %}
+                                                        <i class="fas fa-star"></i>
+                                                    {% else %}
+                                                        <i class="far fa-star"></i>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% else %}
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            {% endif %}
+                                        </div>
+                                        <div class="product-price">{% if product.is_on_sale %}{{ product.sale_price|money }}{% else %}{{ product.price|money }}{% endif %}</div>
+                                        <salla-add-product-button product-id="{{ product.id }}" product-status="{{ product.status }}" product-type="{{ product.type }}"></salla-add-product-button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            {# Static fallback products - EXACT MATCH #}
+                            <div class="product-card">
+                                <span class="product-badge sale">Sale</span>
+                                <div class="product-image">
+                                    <img src="{{ 'images/products/engine-oil.jpg'|asset }}" alt="Engine Oil">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="{{ page('product') }}">FEBI BILSTEIN 31110 Engine oil</a></h3>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="product-price">$23.65</div>
+                                    <button class="add-to-cart-btn">Add to cart <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <span class="product-badge sale">Sale</span>
+                                <div class="product-image">
+                                    <img src="{{ 'images/products/lambda.jpg'|asset }}" alt="Lambda Sensor">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="{{ page('product') }}">BOSCH 0 258 986 615 Lambda</a></h3>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <div class="product-price">$43.90</div>
+                                    <button class="add-to-cart-btn">Add to cart <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <span class="product-badge sale">Sale</span>
+                                <span class="product-badge popular">Popular</span>
+                                <div class="product-image">
+                                    <img src="{{ 'images/products/knock.jpg'|asset }}" alt="Knock Sensor">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="{{ page('product') }}">VEMO V95-72-0029 Knock</a></h3>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="product-price">$23.86</div>
+                                    <button class="add-to-cart-btn">Add to cart <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <span class="product-badge sale">Sale</span>
+                                <span class="product-badge new">New!</span>
+                                <div class="product-image">
+                                    <img src="{{ 'images/products/air-flow.jpg'|asset }}" alt="Mass Air Flow">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="{{ page('product') }}">VDO 5WK97004Z Mass air flow</a></h3>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <div class="product-price">$79.33</div>
+                                    <button class="add-to-cart-btn">Add to cart <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <span class="product-badge sale">Sale</span>
+                                <div class="product-image">
+                                    <img src="{{ 'images/products/screwdriver.jpg'|asset }}" alt="Screwdriver">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="{{ page('product') }}">YATO YT-04382 Screwdriver Bit</a></h3>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <div class="product-price">$1.85</div>
+                                    <button class="add-to-cart-btn">Add to cart <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <span class="product-badge popular">Popular</span>
+                                <div class="product-image">
+                                    <img src="{{ 'images/products/relay.jpg'|asset }}" alt="Relay">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="{{ page('product') }}">VICMA Relay, start repeater</a></h3>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <div class="product-price">$14.36</div>
+                                    <button class="add-to-cart-btn">Add to cart <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <span class="product-badge sale">Sale</span>
+                                <div class="product-image">
+                                    <img src="{{ 'images/products/heater.jpg'|asset }}" alt="Heater Matrix">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="{{ page('product') }}">VEMO V20-61-0001 Heater matrix</a></h3>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <div class="product-price">$65.06</div>
+                                    <button class="add-to-cart-btn">Add to cart <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <span class="product-badge sale">Sale</span>
+                                <div class="product-image">
+                                    <img src="{{ 'images/products/engine-oil.jpg'|asset }}" alt="Engine Oil Cooler">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="{{ page('product') }}">RIDEX 46900075 Engine oil cooler</a></h3>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="product-price">$53.68</div>
+                                    <button class="add-to-cart-btn">Add to cart <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        {% if products.pagination %}
+                            {% if products.pagination.prev_url %}
+                                <a href="{{ products.pagination.prev_url }}" class="page-btn"><i class="fas fa-chevron-left"></i></a>
+                            {% else %}
+                                <a href="#" class="page-btn"><i class="fas fa-chevron-left"></i></a>
+                            {% endif %}
+                            {% for page_num in products.pagination.pages %}
+                                <a href="{{ page_num.url }}" class="page-number {% if page_num.is_current %}active{% endif %}">{{ page_num.number }}</a>
+                            {% endfor %}
+                            {% if products.pagination.next_url %}
+                                <a href="{{ products.pagination.next_url }}" class="page-btn"><i class="fas fa-chevron-right"></i></a>
+                            {% else %}
+                                <a href="#" class="page-btn"><i class="fas fa-chevron-right"></i></a>
+                            {% endif %}
+                        {% else %}
+                            {# Static pagination fallback #}
+                            <a href="#" class="page-btn"><i class="fas fa-chevron-left"></i></a>
+                            <a href="#" class="page-number active">1</a>
+                            <a href="#" class="page-number">2</a>
+                            <a href="#" class="page-number">3</a>
+                            <a href="#" class="page-number">4</a>
+                            <a href="#" class="page-number">5</a>
+                            <a href="#" class="page-btn"><i class="fas fa-chevron-right"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ 'shared.js'|asset }}"></script>
+    <script src="{{ 'script.js'|asset }}"></script>
+    <script src="{{ 'shop.js'|asset }}"></script>
+{% endblock %}

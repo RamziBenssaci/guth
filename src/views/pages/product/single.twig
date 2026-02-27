@@ -1,0 +1,320 @@
+{% extends "layouts.master" %}
+
+{% block title %}{% if product %}{{ product.name }} - {% endif %}{{ store.name|default('MOBEX AUTO PARTS & ACCESSORIES') }}{% endblock %}
+
+{% block content %}
+    <!-- Breadcrumbs -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumbs">
+                <a href="{{ page('index') }}">Home</a> / 
+                <a href="{{ page('products') }}">Shop</a> / 
+                {% if product and product.category %}
+                    <a href="{{ product.category.url }}">{{ product.category.name }}</a> / 
+                {% else %}
+                    <a href="{{ page('products') }}?category=engine">Engine Parts</a> / 
+                {% endif %}
+                <span>{% if product %}{{ product.name }}{% else %}FEBI BILSTEIN 31110 Engine oil{% endif %}</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <div class="container">
+            <div class="product-layout">
+                <div class="product-gallery">
+                    <div class="main-image">
+                        {% if product and product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.image.alt|default(product.name) }}" id="main-product-image">
+                        {% else %}
+                            <img src="{{ 'images/products/engine-oil.jpg'|asset }}" alt="FEBI BILSTEIN 31110 Engine oil" id="main-product-image">
+                        {% endif %}
+                    </div>
+                    <div class="thumbnail-images">
+                        {% if product and product.images|length > 0 %}
+                            {% for image in product.images|slice(0, 4) %}
+                                <img src="{{ image.url }}" alt="{{ image.alt|default(product.name) }}" class="thumbnail {% if loop.first %}active{% endif %}">
+                            {% endfor %}
+                        {% else %}
+                            <img src="{{ 'images/products/engine-oil.jpg'|asset }}" alt="Thumbnail 1" class="thumbnail active">
+                            <img src="{{ 'images/products/engine-oil.jpg'|asset }}" alt="Thumbnail 2" class="thumbnail">
+                            <img src="{{ 'images/products/engine-oil.jpg'|asset }}" alt="Thumbnail 3" class="thumbnail">
+                            <img src="{{ 'images/products/engine-oil.jpg'|asset }}" alt="Thumbnail 4" class="thumbnail">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    {% if product and product.is_on_sale %}<span class="product-badge sale">Sale</span>{% elseif not product %}<span class="product-badge sale">Sale</span>{% endif %}
+                    <h1 class="product-title">{% if product %}{{ product.name }}{% else %}FEBI BILSTEIN 31110 Engine oil{% endif %}</h1>
+                    <div class="product-rating">
+                        <div class="stars">
+                            {% if product and product.rating %}
+                                {% for i in 1..5 %}
+                                    {% if i <= product.rating.stars %}
+                                        <i class="fas fa-star"></i>
+                                    {% else %}
+                                        <i class="far fa-star"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            {% endif %}
+                        </div>
+                        <span class="rating-text">
+                            {% if product and product.rating %}
+                                ({{ product.rating.stars }} based on {{ product.rating.count }} reviews)
+                            {% else %}
+                                (4.5 based on 12 reviews)
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="product-price">
+                        {% if product %}
+                            <span class="current-price">{% if product.is_on_sale %}{{ product.sale_price|money }}{% else %}{{ product.price|money }}{% endif %}</span>
+                            {% if product.is_on_sale and product.regular_price %}
+                                <span class="old-price">{{ product.regular_price|money }}</span>
+                            {% endif %}
+                        {% else %}
+                            <span class="current-price">$23.65</span>
+                            <span class="old-price">$29.99</span>
+                        {% endif %}
+                    </div>
+                    <div class="product-description">
+                        {% if product and product.description %}
+                            <p>{{ product.description|raw }}</p>
+                        {% else %}
+                            <p>High-quality engine oil cooler designed for optimal performance. Compatible with various vehicle models and ensures efficient cooling of your engine.</p>
+                        {% endif %}
+                    </div>
+                    <div class="product-specs">
+                        {% if product %}
+                            {% if product.sku %}<p><strong>SKU:</strong> {{ product.sku }}</p>{% endif %}
+                            {% if product.brand %}<p><strong>Brand:</strong> {{ product.brand.name }}</p>{% endif %}
+                            {% if product.category %}<p><strong>Category:</strong> {{ product.category.name }}</p>{% endif %}
+                            <p><strong>Availability:</strong> 
+                                {% if product.is_available %}
+                                    <span class="in-stock">In Stock</span>
+                                {% else %}
+                                    <span class="out-of-stock">Out of Stock</span>
+                                {% endif %}
+                            </p>
+                        {% else %}
+                            <p><strong>SKU:</strong> FEBI-31110</p>
+                            <p><strong>Brand:</strong> FEBI BILSTEIN</p>
+                            <p><strong>Category:</strong> Engine Parts</p>
+                            <p><strong>Availability:</strong> <span class="in-stock">In Stock</span></p>
+                        {% endif %}
+                    </div>
+                    <form class="product-form">
+                        <div class="quantity-selector">
+                            <label>Quantity:</label>
+                            <div class="quantity-controls">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" {% if product and product.max_quantity %}max="{{ product.max_quantity }}"{% endif %} class="quantity-input">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            {% if product %}
+                                <salla-add-product-button 
+                                    product-id="{{ product.id }}" 
+                                    product-status="{{ product.status }}" 
+                                    product-type="{{ product.type }}"
+                                    class="add-to-cart-btn-large">
+                                </salla-add-product-button>
+                            {% else %}
+                                <button type="submit" class="add-to-cart-btn-large">
+                                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                                </button>
+                            {% endif %}
+                            <button type="button" class="wishlist-btn">
+                                <i class="fas fa-heart"></i> Add to Wishlist
+                            </button>
+                            <button type="button" class="compare-btn">
+                                <i class="fas fa-exchange-alt"></i> Compare
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="product-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="description">Description</button>
+                    <button class="tab-btn" data-tab="specifications">Specifications</button>
+                    <button class="tab-btn" data-tab="reviews">Reviews {% if product and product.rating %}({{ product.rating.count }}){% else %}(12){% endif %}</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="description">
+                        <h3>Product Description</h3>
+                        {% if product and product.description %}
+                            {{ product.description|raw }}
+                        {% else %}
+                            <p>This high-quality engine oil cooler from FEBI BILSTEIN is designed to provide optimal cooling performance for your vehicle's engine. Made from premium materials, it ensures durability and reliability.</p>
+                            <ul>
+                                <li>Premium quality construction</li>
+                                <li>Compatible with multiple vehicle models</li>
+                                <li>Easy installation</li>
+                                <li>Long-lasting performance</li>
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="specifications">
+                        <h3>Technical Specifications</h3>
+                        {% if product and product.has_metadata %}
+                            {# Use product metadata if available #}
+                            <table class="specs-table">
+                                {% for key, value in product.metadata %}
+                                    <tr>
+                                        <td>{{ key }}</td>
+                                        <td>{{ value }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        {% else %}
+                            <table class="specs-table">
+                                <tr>
+                                    <td>Material</td>
+                                    <td>Aluminum</td>
+                                </tr>
+                                <tr>
+                                    <td>Weight</td>
+                                    <td>{% if product and product.weight %}{{ product.weight }}{% else %}1.2 kg{% endif %}</td>
+                                </tr>
+                                <tr>
+                                    <td>Dimensions</td>
+                                    <td>15 x 10 x 5 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>Compatibility</td>
+                                    <td>Multiple vehicle models</td>
+                                </tr>
+                            </table>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="reviews">
+                        <h3>Customer Reviews</h3>
+                        {% if product and product.reviews|length > 0 %}
+                            {% for review in product.reviews %}
+                                <div class="review-item">
+                                    <div class="reviewer-info">
+                                        <strong>{{ review.customer_name|default('Anonymous') }}</strong>
+                                        <div class="review-stars">
+                                            {% for i in 1..5 %}
+                                                {% if i <= review.rating %}
+                                                    <i class="fas fa-star"></i>
+                                                {% else %}
+                                                    <i class="far fa-star"></i>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <p>{{ review.comment }}</p>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            {# Static fallback reviews #}
+                            <div class="review-item">
+                                <div class="reviewer-info">
+                                    <strong>John D.</strong>
+                                    <div class="review-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p>Excellent product! Fits perfectly and works great.</p>
+                            </div>
+                            <div class="review-item">
+                                <div class="reviewer-info">
+                                    <strong>Sarah M.</strong>
+                                    <div class="review-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                                <p>Good quality, fast shipping. Recommended!</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="related-products">
+                <h2>Related Products</h2>
+                <div class="products-grid">
+                    {% if related_products|length > 0 %}
+                        {% for product in related_products|slice(0, 3) %}
+                            <div class="product-card">
+                                {% if product.is_on_sale %}<span class="product-badge sale">Sale</span>{% endif %}
+                                <div class="product-image">
+                                    <a href="{{ product.url }}">
+                                        <img src="{{ product.image.url|default('images/placeholder.png'|asset) }}" alt="{{ product.image.alt|default(product.name) }}">
+                                    </a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="{{ product.url }}">{{ product.name }}</a></h3>
+                                    <div class="product-price">{% if product.is_on_sale %}{{ product.sale_price|money }}{% else %}{{ product.price|money }}{% endif %}</div>
+                                    <salla-add-product-button product-id="{{ product.id }}" product-status="{{ product.status }}" product-type="{{ product.type }}"></salla-add-product-button>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        {# Static fallback related products #}
+                        <div class="product-card">
+                            <span class="product-badge sale">Sale</span>
+                            <div class="product-image">
+                                <img src="{{ 'images/products/lambda.jpg'|asset }}" alt="Lambda Sensor">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title"><a href="{{ page('product') }}">BOSCH 0 258 986 615 Lambda</a></h3>
+                                <div class="product-price">$43.90</div>
+                                <button class="add-to-cart-btn">Add to cart</button>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <span class="product-badge sale">Sale</span>
+                            <div class="product-image">
+                                <img src="{{ 'images/products/knock.jpg'|asset }}" alt="Knock Sensor">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title"><a href="{{ page('product') }}">VEMO V95-72-0029 Knock</a></h3>
+                                <div class="product-price">$23.86</div>
+                                <button class="add-to-cart-btn">Add to cart</button>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <span class="product-badge sale">Sale</span>
+                            <div class="product-image">
+                                <img src="{{ 'images/products/air-flow.jpg'|asset }}" alt="Mass Air Flow">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title"><a href="{{ page('product') }}">VDO 5WK97004Z Mass air flow</a></h3>
+                                <div class="product-price">$79.33</div>
+                                <button class="add-to-cart-btn">Add to cart</button>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ 'shared.js'|asset }}"></script>
+    <script src="{{ 'product.js'|asset }}"></script>
+{% endblock %}
