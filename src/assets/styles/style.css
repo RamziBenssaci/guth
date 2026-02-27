@@ -1742,4 +1742,13 @@ body {
         flex-direction: column;
         gap: 10px;
     }
+
+    
+.header-content .logo img {
+    display: none; /* hides the image completely */
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+    
 }
